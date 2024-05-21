@@ -4,7 +4,7 @@ const jwt = require("jsonwebtoken");
 const { registrationModal } = require("../modal/registration");
 const LoginRouter = express.Router();
 require("dotenv/config");
-const JWT_secret_key = process.env.JWT_secret_key;
+const JWT_secret_key = process.env.JWT_SECRET_KEY;
 
 
 LoginRouter.post('/login', async (req, res) => {
