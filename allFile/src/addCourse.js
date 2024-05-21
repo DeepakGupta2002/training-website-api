@@ -2,6 +2,7 @@ const express = require('express');
 const addCourse = express.Router();
 const multer = require("multer");
 const { courseModel } = require('./modal/courses_add');
+// const { courseModel } = require("../upload");
 
 // Storage configuration
 var storage = multer.diskStorage({
@@ -34,7 +35,10 @@ addCourse.post('/addCourse', upload.single('file'), async (req, res) => {
         });
     } catch (err) {
         console.error(err);
-        res.status(500).json({ message: "Internal server error" });
+        res.status(500).json({
+            message: "Internal server error",
+            data: err.message
+        });
     }
 });
 
